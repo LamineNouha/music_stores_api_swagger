@@ -1,0 +1,38 @@
+# Music Store Rails API with Grape
+
+In this project we have used Grape, a micro-framework for creating maintainable REST-like APIs in Ruby, to create a Rails API which offers CRUD operations to manipulate our music store.
+
+## Dependencies
+* ruby version 2.4.2
+* rails version 4.2.10
+* bundler version 1.3
+* sqlite3 version 1.3.7
+* grape version 1.2.3
+
+## Getting Started
+```shell
+$ git clone
+$ cd music_stores_api
+$ bundle install
+$ rails s
+```
+
+## CRUD demo
+#### Create
+![create](https://github.com/LamineNouha/music_stores_api/blob/master/demo/sceenshots/post2.png)
+
+#### Read
+![read](https://github.com/LamineNouha/music_stores_api/blob/master/demo/sceenshots/read.png)
+
+#### Update
+![update](https://github.com/LamineNouha/music_stores_api/blob/master/demo/sceenshots/put.png)
+
+* view modification
+![view-update](https://github.com/LamineNouha/music_stores_api/blob/master/demo/sceenshots/get_after_put.png)
+
+#### Delete
+![delete](https://github.com/LamineNouha/music_stores_api/blob/master/demo/sceenshots/delete.png)
+* view modification
+![view-delete](https://github.com/LamineNouha/music_stores_api/blob/master/demo/sceenshots/get_after_delete.png)
+## Resource
+[Tutorial](https://www.alliedcode.com/apis/)
