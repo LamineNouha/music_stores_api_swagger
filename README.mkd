@@ -1,6 +1,6 @@
 # Music Store Rails API with Grape
 
-In this project we have used Grape, a micro-framework for creating maintainable REST-like APIs in Ruby, to create a Rails API which offers CRUD operations to manipulate our music store.
+In this project we have used Grape, a micro-framework for creating maintainable REST-like APIs in Ruby, to create a Rails API which offers CRUD operations to manipulate our music stores.
 
 ## Dependencies
 * ruby version 2.4.2
