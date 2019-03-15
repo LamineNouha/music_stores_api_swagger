@@ -11,7 +11,7 @@ In this project we have used Grape, a micro-framework for creating maintainable 
 
 ## Getting Started
 ```shell
-$ git clone
+$ git clone https://github.com/LamineNouha/music_stores_api.git
 $ cd music_stores_api
 $ bundle install
 $ rails s
