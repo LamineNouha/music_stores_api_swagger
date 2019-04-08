@@ -81,13 +81,13 @@ mount GrapeSwaggerRails::Engine => ‘/apidoc'
 #### Update
 ![update](https://github.com/LamineNouha/music_stores_api_swagger/blob/master/demo/swaggerdemo/update.png)
 
-* view modification
+* View modification
 
 ![view-update](https://github.com/LamineNouha/music_stores_api_swagger/blob/master/demo/swaggerdemo/afterupdate.png)
 
 #### Delete
 ![delete](https://github.com/LamineNouha/music_stores_api_swagger/blob/master/demo/swaggerdemo/delete.png)
-* view modification
+* View modification
 
 ![view-delete](https://github.com/LamineNouha/music_stores_api_swagger/blob/master/demo/swaggerdemo/afterdelete.png)
 ## Resource
