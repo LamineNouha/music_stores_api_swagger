@@ -4,7 +4,8 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.10'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.3.7'
+#gem 'sqlite3', '~> 1.3.7'
+gem 'mysql2', '~> 0.3.13'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -44,6 +45,9 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'grape', '~> 1.2.3'
+  gem 'grape-entity'
+  gem 'grape-swagger'
+  gem 'grape-swagger-rails'
  
 end
 

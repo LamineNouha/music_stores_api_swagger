@@ -14,13 +14,13 @@
 ActiveRecord::Schema.define(version: 20190313135320) do
 
   create_table "music_stores", force: :cascade do |t|
-    t.string   "name"
-    t.string   "address"
-    t.float    "lat"
-    t.float    "lon"
-    t.integer  "stars"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",       limit: 255
+    t.string   "address",    limit: 255
+    t.float    "lat",        limit: 24
+    t.float    "lon",        limit: 24
+    t.integer  "stars",      limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
 end

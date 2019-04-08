@@ -1,5 +1,6 @@
 module Music
     class Store < Grape::API
+
       resource :music_stores do
    
         ##
@@ -68,7 +69,7 @@ module Music
         })
       end
 
-
+   
 
     end
   end
