@@ -1,38 +1,91 @@
-# Music Store Rails API with Grape
+# Music Store Rails API with Grape + Swagger
 
-In this project we have used Grape, a micro-framework for creating maintainable REST-like APIs in Ruby, to create a Rails API which offers CRUD operations to manipulate our music stores.
+This project is the same as the project pushed on this [repository](https://github.com/LamineNouha/music_stores_api) we only changed the database from sqlite3 to MySQL and we added swagger to grape in order to generate documentation for our API music_stores_api previously created.
 
 ## Dependencies
-* ruby version 2.4.2
-* rails version 4.2.10
-* bundler version 1.3
-* sqlite3 version 1.3.7
-* grape version 1.2.3
+* We worked with MySQL version 5.6.37.
+* Gems added to the project:
+
+  * mysql2 version 0.3.13 instead of sqlite3, mysql2  is a library which functions as MySQL adapter allowing us to connect and query MySQL database. 
+  * grape-entity: allows to specify the attributes of our model exposed by the API.
+  * grape-swagger: allows to generate the documentation of our API from our code.
+  * grape-swagger-rails: allows to embark in our project Rails the UI of Swagger.
 
 ## Getting Started
-```shell
-$ git clone https://github.com/LamineNouha/music_stores_api.git
-$ cd music_stores_api
-$ bundle install
-$ rails s
+1. __***Setting connection to MySQL database***__
+* Add the mysql2 dependency to the gem file 
+``` 
+gem 'mysql2', '~> 0.3.13' 
 ```
+* Configure the database connection in the config/database.yml file
+```default: &default
+  adapter: mysql2
+  encoding: utf8
+  database: musicstores
+  username: root
+  password: 
+  host: 127.0.0.1
+  port: 3306
+  
+  development:
+  <<: *default
+  database: musicstores
+```
+* Run ``` $ rake db:migrate ``` so that our tables will be created as shown by Sequel Pro.
 
-## CRUD demo
+![sequelpro](https://github.com/LamineNouha/music_stores_api_swagger/blob/master/demo/swaggerdemo/Screen%20Shot%202019-04-03%20at%202.51.53%20PM.png)
+* Now we can test our api already connected to our MySQL database named musicstores but before that we will add swagger, a framework that provides capabilities to easily inspect API request-responses to crud functionalities, and make sure they work as expected.
+2. __***Adding swagger***__
+* Add this dependencies to the gem file
+```
+  gem 'grape-entity'
+  gem 'grape-swagger'
+  gem 'grape-swagger-rails'
+```
+* We need to configure grape-swagger-rails gem, so we create an initializer config/initializers/swagger.rb
+```
+GrapeSwaggerRails.options.url      = '/api/swagger_doc'
+GrapeSwaggerRails.options.app_name = 'music_stores_api'
+GrapeSwaggerRails.options.app_url  = 'http://localhost:3000'
+```
+* To display the swagger UI we need to specify his route in config/routes.rb
+```
+mount GrapeSwaggerRails::Engine => ‘/apidoc' 
+```
+* In order to generate swagger documentation for our api we need to configure grape_swagger gem in our root node api/api.rb where our api is mounted. So we add add_swagger_documentation function as shown
+```
+    add_swagger_documentation(
+    api_version: "v1",
+    hide_documentation_path: true,
+    mount_path: "/api/v1/swagger_doc",
+    hide_format: true
+  )
+  ```
+ **NB:** we have to run bundle install after adding gems in our gem file.
+ * Then our API is ready for test with swagger.
+ 
+
+## Swagger demo
+### Swagger UI
+![swaggerui](https://github.com/LamineNouha/music_stores_api_swagger/blob/master/demo/swaggerdemo/Screen%20Shot%202019-04-03%20at%205.15.29%20PM.png)
+### CRUD DEMO
 #### Create
-![create](https://github.com/LamineNouha/music_stores_api/blob/master/demo/sceenshots/post2.png)
+![create](https://github.com/LamineNouha/music_stores_api_swagger/blob/master/demo/swaggerdemo/post.png)
+* Verify database
+![aftercreate](https://github.com/LamineNouha/music_stores_api_swagger/blob/master/demo/swaggerdemo/afterpost.png)
 
 #### Read
-![read](https://github.com/LamineNouha/music_stores_api/blob/master/demo/sceenshots/read.png)
+![read](https://github.com/LamineNouha/music_stores_api_swagger/blob/master/demo/swaggerdemo/read.png)
 
 #### Update
-![update](https://github.com/LamineNouha/music_stores_api/blob/master/demo/sceenshots/put.png)
+![update](https://github.com/LamineNouha/music_stores_api_swagger/blob/master/demo/swaggerdemo/update.png)
 
 * view modification
-![view-update](https://github.com/LamineNouha/music_stores_api/blob/master/demo/sceenshots/get_after_put.png)
+![view-update](https://github.com/LamineNouha/music_stores_api_swagger/blob/master/demo/swaggerdemo/afterupdate.png)
 
 #### Delete
-![delete](https://github.com/LamineNouha/music_stores_api/blob/master/demo/sceenshots/delete.png)
+![delete](https://github.com/LamineNouha/music_stores_api_swagger/blob/master/demo/swaggerdemo/delete.png)
 * view modification
-![view-delete](https://github.com/LamineNouha/music_stores_api/blob/master/demo/sceenshots/get_after_delete.png)
+![view-delete](https://github.com/LamineNouha/music_stores_api_swagger/blob/master/demo/swaggerdemo/afterdelete.png)
 ## Resource
-[Tutorial](https://www.alliedcode.com/apis/)
+[Grape-swagger tutorial](https://www.synbioz.com/blog/generer_une_documentation_api_depuis_le_code_avec_grape)
