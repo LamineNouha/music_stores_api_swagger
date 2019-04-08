@@ -52,7 +52,7 @@ GrapeSwaggerRails.options.app_url  = 'http://localhost:3000'
 ```
 mount GrapeSwaggerRails::Engine => ‘/apidoc' 
 ```
-* In order to generate swagger documentation for our api we need to configure grape_swagger gem in our root node api/api.rb where our api is mounted. So we add add_swagger_documentation function as shown
+* In order to generate swagger documentation for our api we need to configure grape_swagger gem in our root node api/api.rb where our api is mounted. So we add **add_swagger_documentation** function as shown
 ```
     add_swagger_documentation(
     api_version: "v1",
@@ -72,6 +72,7 @@ mount GrapeSwaggerRails::Engine => ‘/apidoc'
 #### Create
 ![create](https://github.com/LamineNouha/music_stores_api_swagger/blob/master/demo/swaggerdemo/post.png)
 * Verify database
+
 ![aftercreate](https://github.com/LamineNouha/music_stores_api_swagger/blob/master/demo/swaggerdemo/afterpost.png)
 
 #### Read
@@ -81,11 +82,13 @@ mount GrapeSwaggerRails::Engine => ‘/apidoc'
 ![update](https://github.com/LamineNouha/music_stores_api_swagger/blob/master/demo/swaggerdemo/update.png)
 
 * view modification
+
 ![view-update](https://github.com/LamineNouha/music_stores_api_swagger/blob/master/demo/swaggerdemo/afterupdate.png)
 
 #### Delete
 ![delete](https://github.com/LamineNouha/music_stores_api_swagger/blob/master/demo/swaggerdemo/delete.png)
 * view modification
+
 ![view-delete](https://github.com/LamineNouha/music_stores_api_swagger/blob/master/demo/swaggerdemo/afterdelete.png)
 ## Resource
 [Grape-swagger tutorial](https://www.synbioz.com/blog/generer_une_documentation_api_depuis_le_code_avec_grape)
